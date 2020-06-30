@@ -1,0 +1,30 @@
+{
+  "name": "federated-schema",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:gateway": "ts-node-dev --respawn --transpileOnly --no-notify --watch 'src/*.ts' src/gateway.ts",
+    "start:users": "ts-node-dev --respawn --transpileOnly --no-notify src/users.ts",
+    "start:posts": "ts-node-dev --respawn --transpileOnly --no-notify src/posts.ts",
+    "start:all": "yarn start:users & yarn start:posts & sleep 3 && yarn start:gateway",
+    "start": "ts-node-dev --respawn --transpileOnly --no-notify src/server.ts"
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.16.9",
+    "@apollo/gateway": "^0.16.9",
+    "apollo-server": "^2.15.0",
+    "graphql": "14.6.0",
+    "graphql-tools": "^6.0.11"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.14",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "ts-node-dev": "^1.0.0-pre.49",
+    "typescript": "^3.9.5"
+  }
+}
